@@ -16,6 +16,7 @@
     <div class="container">
       <router-view />
       <router-view name="haveName" />
+      <router-view name="hot" />
     </div>
   </div>
 </template>

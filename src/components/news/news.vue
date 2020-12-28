@@ -58,6 +58,12 @@ export default {
       this.index = this.$route.params.id
       this.getCurrentArt()
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log(to)
+    console.log(from)
+    console.log('beforeRouteUpdate')
+    next()
   }
 }
 </script>
