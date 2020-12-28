@@ -9,7 +9,10 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      component: Home,
+      components: {
+        default: Home,
+        haveName: () => import("../components/haveName.vue"),
+      },
     },
     {
       path: '/article',

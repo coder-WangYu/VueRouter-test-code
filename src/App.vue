@@ -15,6 +15,7 @@
     </div>
     <div class="container">
       <router-view />
+      <router-view name="haveName" />
     </div>
   </div>
 </template>
