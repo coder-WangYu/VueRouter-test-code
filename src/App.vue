@@ -2,13 +2,13 @@
   <div id="app">
     <div class="header">
       <div class="nav">
-        <div class="left-title">个人博客</div>
+        <div class="left-title" @click="handleClick">个人博客</div>
         <div class="right-nav">
           <router-link to="/">首页</router-link>
           <router-link to="/article">文章</router-link>
           <router-link to="/hot">近期热门</router-link>
           <router-link to="/hy">行业相关</router-link>
-          <router-link :to="{ name: 'new' }">最新发布</router-link>
+          <router-link to="/new">最新发布</router-link>
           <router-link to="/about">关于</router-link>
         </div>
       </div>
@@ -18,6 +18,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    handleClick() {
+      // this.$router.push('/', '123')
+      console.log(this.$route)
+    }
+  }
+}
+</script>
 
 <style>
   @import url("./assets/css/reset.css");

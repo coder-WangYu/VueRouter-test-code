@@ -48,8 +48,11 @@ export default new VueRouter({
     },
     {
       path: '/new',
-      name: 'new',
-      component: () => import("../components/new.vue")
+      component: () => import("../components/new.vue"),
+    },
+    {
+      path: '/news/:id',
+      component: () => import("../components/news/news.vue"),
     },
   ],
 })
