@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  mounted () {
-    console.log(this.$route.meta)
+  beforeRouteLeave : (to, from, next) => {
+    from.meta.leaveFlag ? window.confirm("确定残忍离开？") ? next() : next(false) : next()
   }
 }
 </script>
