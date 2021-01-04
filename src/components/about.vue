@@ -1,6 +1,7 @@
 <template>
   <div class="about">
-    关于
+    <p>关于</p>
+    <router-link tag="button" to="/" class="link">去首页</router-link>
   </div>
 </template>
 
@@ -11,3 +12,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .link {
+    border: 1px solid #000;
+    cursor: pointer;
+    margin: 500px 0;
+  }
+</style>

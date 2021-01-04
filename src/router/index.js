@@ -90,15 +90,27 @@ const router = new VueRouter({
       component: () => import("../components/login.vue")
     },
   ],
+  //到哪儿去，从哪儿来和保存的位置
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      console.log(savedPosition)
+    } else {
+      return {
+        x: 0,
+        y: 0,
+      }
+    }
+  },
 })
 
-router.beforeEach((to, from, next) => {
-  let haveFlag = to.matched.some(item => item.meta.requestFlag)
-  if (haveFlag) {
-    document.cookie.includes('=') ? next() : window.confirm("需要登录才能浏览，是否登录？") ? next('/login') : next(false)
-  } else {
-    next()
-  }
-})
+//导航守卫
+// router.beforeEach((to, from, next) => {
+//   let haveFlag = to.matched.some(item => item.meta.requestFlag)
+//   if (haveFlag) {
+//     document.cookie.includes('=') ? next() : window.confirm("需要登录才能浏览，是否登录？") ? next('/login') : next(false)
+//   } else {
+//     next()
+//   }
+// })
 
 export default router

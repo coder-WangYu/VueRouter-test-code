@@ -14,9 +14,11 @@
       </div>
     </div>
     <div class="container">
-      <router-view />
-      <router-view name="haveName" />
-      <router-view name="hot" />
+      <transition>
+        <router-view />
+      </transition>
+<!--      <router-view name="haveName" />-->
+<!--      <router-view name="hot" />-->
     </div>
   </div>
 </template>
@@ -34,6 +36,18 @@ export default {
 
 <style>
   @import url("./assets/css/reset.css");
+
+  /* enter */
+  .v-enter {
+    transform: translateX(1000px);
+  }
+  .v-enter-active {
+    transition: all .5s;
+  }
+  .v-enter-to {
+    transform: translateX(0px);
+  }
+
   .header {
     width: 100%;
     height: 50px;
