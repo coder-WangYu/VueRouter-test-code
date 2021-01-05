@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由-原理实现</title>
+</head>
+<body>
+    <!-- 任意标签 = router-link  -->
+    <span style="color: deepskyblue;cursor:pointer;" onclick="changeHash('/')">首页</span>
+    <span style="color: deepskyblue;cursor:pointer;" onclick="changeHash('/about')">关于</span>
+    <!-- div = router-view  -->
+    <div id="view"></div>
+
+<script>
+    function changeHash (path) {
+        history.pushState(null, null, path)
+        if (location.pathname == "/") {
+            view.innerHTML = "首页是我"
+        } else if (location.pathname == "/about") {
+            view.innerHTML = "关于是我"
+        }
+    }
+    window.addEventListener("popstate", () => {
+        if (location.pathname == "/") {
+            view.innerHTML = "首页是我"
+        } else if (location.pathname == "/about") {
+            view.innerHTML = "关于是我"
+        }
+    })
+    // window.addEventListener("hashchange", () => {
+    //     if (location.hash == "#/") {
+    //         view.innerHTML = "我是首页"
+    //     } else if (location.hash == "#/about") {
+    //         view.innerHTML = "我是关于"
+    //     }
+    // })
+</script>
+</body>
+</html>
